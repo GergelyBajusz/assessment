@@ -77,7 +77,7 @@ export const getOneDigitNumber = (number) => {
   }
 
   export const getThreeDigitNumber = (number) => {
-      if(number.toString().length < 3) {
+      if(number.toString().length < 3 && number !== 0) {
         return `and ${getTwoDigitNumber(number)}`
       }
       const hundred = number.toString().charAt(0);
@@ -94,5 +94,14 @@ export const getOneDigitNumber = (number) => {
         return `${getOneDigitNumber(parseInt(thousand))} thousand`        
     } else {
         return `${getOneDigitNumber(parseInt(thousand))} thousand ${getThreeDigitNumber(number - parseInt(thousand *1000))}`
+    }
+}
+
+export const getFiveDigitNumber = (number) => {
+    const thousand = number.toString().substring(0, 2);
+    if (number % 10000 === 0) {
+        return `${getTwoDigitNumber(parseInt(thousand))} thousand`        
+    } else {
+        return `${getTwoDigitNumber(parseInt(thousand))} thousand ${getThreeDigitNumber(number - parseInt(thousand *1000))}`
     }
 }

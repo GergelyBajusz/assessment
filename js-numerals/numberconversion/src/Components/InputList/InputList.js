@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import { Box } from '@mui/material'
 import InputField from '../InputField/InputField'
-/* import { numberTypes } from '../../Constants/numberTypes' */
-import { getOneDigitNumber, getTwoDigitNumber, getThreeDigitNumber, getFourDigitNumber } from '../helpers/getNumber'
-
+import {
+  getOneDigitNumber,
+  getTwoDigitNumber,
+  getThreeDigitNumber,
+  getFourDigitNumber,
+  getFiveDigitNumber
+  } from '../helpers/getNumber'
 
 function InputList() {
     const [inputValue, setInputValue] = useState('')
@@ -30,6 +34,9 @@ function InputList() {
                if (item >= 1000 && item < 10000) {
                 return getFourDigitNumber(item)
             }
+            if (item >= 10000 && item < 100000) {
+              return getFiveDigitNumber(item)
+          }
 
            })
            if (output[0] === undefined) {
