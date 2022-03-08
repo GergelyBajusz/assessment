@@ -1,0 +1,7 @@
+@import '../../../scss/variables/colors.scss';
+
+.InputField {
+    .MuiOutlinedInput-root {
+        background: $SecondaryColor20;
+    }
+}
