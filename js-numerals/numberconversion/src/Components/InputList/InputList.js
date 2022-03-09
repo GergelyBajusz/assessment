@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react'
-import { Box } from '@mui/material'
+import React, {useState, useEffect } from 'react'
+import { Box, Typography } from '@mui/material'
 import InputField from '../InputField/InputField'
 import {
   getOneDigitNumber,
   getTwoDigitNumber,
   getThreeDigitNumber,
   getFourDigitNumber,
-  getFiveDigitNumber
+  getFiveDigitNumber,
+  getSixDigitNumber,
+  getSevenDigitNumber
   } from '../helpers/getNumber'
+import { PrimaryColor, PrimaryColorLight } from '../../Constants/colors'
 
 function InputList() {
     const [inputValue, setInputValue] = useState('')
@@ -33,11 +36,16 @@ function InputList() {
                }
                if (item >= 1000 && item < 10000) {
                 return getFourDigitNumber(item)
-            }
-            if (item >= 10000 && item < 100000) {
-              return getFiveDigitNumber(item)
-          }
-
+               }
+               if (item >= 10000 && item < 100000) {
+                return getFiveDigitNumber(item)
+               }
+               if (item >= 100000 && item < 1000000) {
+                return getSixDigitNumber(item)
+               }
+               if (item >= 1000000 && item < 10000000) {
+                return getSevenDigitNumber(item)
+               }
            })
            if (output[0] === undefined) {
             setOutputValue('')
@@ -50,10 +58,30 @@ function InputList() {
     
 
   return (
-      <Box
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      marginTop: '60px',
+      '@media (max-width: 690px)': {
+        flexDirection: 'column',
+        marginTop: '12px',
+      },
+    }}>
+      <Typography sx={{
+        fontSize: '2.4rem',
+        fontWeight: 600,
+        color: PrimaryColorLight,
+        textShadow: `2px 4px 1px ${PrimaryColor}`,
+      
+    }}>
+        {`Convert a number into it's equivalent alphat format!`}
+      </Typography>
+       <Box
         sx={{
           display: 'flex',
           gap: '10%',
+          paddingRight: '10%',
           marginTop: '60px',
           '@media (max-width: 690px)': {
             flexDirection: 'column',
@@ -76,6 +104,8 @@ function InputList() {
           disabled
           />
         </Box>
+    </Box>
+     
   );
 }
 

@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { homeRoute } from "../../Constants/routes";
-import { Button } from "@mui/material";
-import AutorenewIcon from "@mui/icons-material/Autorenew";
+import { IconButton } from "@mui/material";
+import HomeIcon from '@mui/icons-material/Home';
 import { PrimaryWhite } from "../../Constants/colors";
 
 import "./styles.scss";
@@ -17,15 +17,13 @@ const Header = () => {
   return (
     <Fragment>
       <div className="header">
-        <Button
+        <IconButton
          aria-label="home" 
          onClick={() => handleImgClick()}
          sx={{ fontSize: 16, color: PrimaryWhite }}
-
-         endIcon={<AutorenewIcon sx={{ fontSize: 40, color: PrimaryWhite }} />}
          >
-          Convert Number to Alphabet
-        </Button>
+           <HomeIcon sx={{ fontSize: 40, color: PrimaryWhite }} />
+        </IconButton>
       </div>
     </Fragment>
   );
