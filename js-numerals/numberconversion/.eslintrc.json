@@ -20,5 +20,15 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off"
-    }
+    },
+    "overrides": [
+        {
+          "files": "*.test.js",
+          "globals": {
+            "shallow": true,
+            "render": true,
+            "mount": true
+          }
+        }
+      ]
 }
