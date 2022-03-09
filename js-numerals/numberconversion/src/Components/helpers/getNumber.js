@@ -105,3 +105,22 @@ export const getFiveDigitNumber = (number) => {
         return `${getTwoDigitNumber(parseInt(thousand))} thousand ${getThreeDigitNumber(number - parseInt(thousand *1000))}`
     }
 }
+
+export const getSixDigitNumber = (number) => {
+    const thousand = number.toString().substring(0, 3);
+    if (number % 100000 === 0) {
+        return `${getThreeDigitNumber(parseInt(thousand))} thousand`        
+    } else {
+        return `${getThreeDigitNumber(parseInt(thousand))} thousand ${getThreeDigitNumber(number - parseInt(thousand *1000))}`
+    }
+}
+
+export const getSevenDigitNumber = (number) => {
+    const million = number.toString().substring(0, 1);
+    const tousend = number.toString().substring(1);
+    if (number % 1000000 === 0) {
+        return `${getOneDigitNumber(parseInt(million))} million`        
+    } else {
+        return `${getOneDigitNumber(parseInt(million))} million ${getSixDigitNumber(tousend)}`
+    }
+}
