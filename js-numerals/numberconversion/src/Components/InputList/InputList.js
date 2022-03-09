@@ -46,6 +46,9 @@ function InputList() {
                if (item >= 1000000 && item < 10000000) {
                 return getSevenDigitNumber(item)
                }
+               if (item >= 10000000) {
+                return 'more than 7 digit numbers not supported yet'
+               }
            })
            if (output[0] === undefined) {
             setOutputValue('')
@@ -80,7 +83,7 @@ function InputList() {
         },
       
     }}>
-        {`Convert a number into it's equivalent alphabet format!`}
+        {`Convert a number into it's equivalent alphabet form!`}
       </Typography>
        <Box
         sx={{
@@ -96,14 +99,16 @@ function InputList() {
         }}
       >
           <InputField 
+          id='numberInputField'
           heading={'Type your number into the field:'}
           type={'number'}
           value={inputValue}
           label={'number'}
           handleChange={(e) => handleInputChange(e)}
           />
-          <InputField 
-           heading={'Your alphabet number is:'}
+          <InputField
+          id='numberOutputField'
+          heading={'Your alphabet number is:'}
           type={'text'}
           value={outputValue}
           label={'alphabet'}

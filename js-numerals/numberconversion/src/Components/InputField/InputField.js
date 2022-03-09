@@ -6,13 +6,13 @@ import { SecondaryColorLight, PrimaryWhite } from '../../Constants/colors'
 import './styles.scss'
 
 
-function InputField({heading, type, value, label, handleChange, disabled}) {
+function InputField({heading, type, value, label, handleChange, disabled, id}) {
   return (
           <Card
            className='InputField'
            sx={{
             minWidth: 400,
-            minHeight: 400,
+            minHeight: 300,
             margin: '4px',
             textAlign: 'center',
             display: 'flex',
@@ -34,6 +34,7 @@ function InputField({heading, type, value, label, handleChange, disabled}) {
                  </Typography>
             </CardContent>}
             <TextField
+              id={id}
               multiline
               type={type}
               label={label}
@@ -49,10 +50,17 @@ function InputField({heading, type, value, label, handleChange, disabled}) {
 InputField.propTypes = {
     heading: PropTypes.string,
     label: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    type: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
     handleChange: PropTypes.func,
     disabled: PropTypes.bool,
+    id: PropTypes.string,
   };
   
   InputField.defaultProps = {
