@@ -4,4 +4,12 @@
     .MuiOutlinedInput-root {
         background: $SecondaryColor20;
     }
+    .MuiOutlinedInput-notchedOutline {
+        border-width: 0;
+    }
+    .MuiInputLabel-outlined.MuiInputLabel-shrink {
+        border-radius: 4px;
+        padding: 0 4px 0 4px;
+        background-color: $SecondaryColor20;
+    }
 }

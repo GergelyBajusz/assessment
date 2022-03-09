@@ -71,11 +71,16 @@ function InputList() {
       <Typography sx={{
         fontSize: '2.4rem',
         fontWeight: 600,
+        textAlign: 'center',
         color: PrimaryColorLight,
-        textShadow: `2px 4px 1px ${PrimaryColor}`,
+        textShadow: `2px 4px 2px ${PrimaryColor}`,
+        '@media (max-width: 690px)': {
+          fontSize: '1.4rem',
+          textShadow: `1px 2px 2px ${PrimaryColor}`,
+        },
       
     }}>
-        {`Convert a number into it's equivalent alphat format!`}
+        {`Convert a number into it's equivalent alphabet format!`}
       </Typography>
        <Box
         sx={{
@@ -86,6 +91,7 @@ function InputList() {
           '@media (max-width: 690px)': {
             flexDirection: 'column',
             marginTop: '12px',
+            paddingRight: 0,
           },
         }}
       >
