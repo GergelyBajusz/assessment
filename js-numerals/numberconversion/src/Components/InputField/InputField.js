@@ -34,6 +34,7 @@ function InputField({heading, type, value, label, handleChange, disabled, id}) {
                  </Typography>
             </CardContent>}
             <TextField
+              autoFocus
               id={id}
               multiline
               type={type}
